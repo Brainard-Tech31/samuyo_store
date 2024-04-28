@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Samuyo store is an online e-commerce platform that deals with electronics and gadgets. Find a wide range of electronic products, gadgets, and accessories at competitive prices.">
+  <meta name="keywords"
+    content="Samuyo Store , online store, e-commerce store, shopping, shop, retail, business , electronics , cool gadgets, e-commerce platform">
+  <meta name="author" content="Brainard-Tech">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+  <title>Samuyo store</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.cdnfonts.com/css/raleway-5" rel="stylesheet">
+
+  <style>
+    /* Width of the scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background-image: linear-gradient(to right, #2f2d2e, #1d171a);
+      /* Background color of the track */
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+
+      /* Background color of the handle */
+      background-image: linear-gradient(to right, #393135, #5b1f38);
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+
+      /* Background color of the handle on hover */
+      background-image: linear-gradient(to right, #393135, #5b1f38);
+    }
+
+    body {
+      background-image: linear-gradient(to right, #2f2d2e, #1d171a);
+      overflow-x: hidden;
+      box-sizing: -box;
+      font-family: 'Raleway', sans-serif !important;
+    }
+
+    a,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    button,
+    span,
+    strong,
+    input {
+      font-family: 'Raleway', sans-serif !important;
+    }
+
+
+    .hero {
+      background-image: linear-gradient(to right, #1a1c1b, #250f16);
+    }
+
+    .hero a {
+      color: white;
+      background: linear-gradient(to right, #e30047, #e30047);
+      box-shadow: 0 4px 6px rgba(30, 114, 87, 0.1);
+      /* Customize the shadow as needed */
+      /* Other styles */
+    }
+
+    .product-card {
+      margin-bottom: 30px;
+
+    }
+
+    .product-card .add-to-cart {
+      color: white;
+      background: linear-gradient(to right, #e30047, #e30047);
+      box-shadow: 0 4px 6px rgba(30, 114, 87, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    .banner a {
+      color: white;
+      background: linear-gradient(to right, #e30047, #e30047);
+      box-shadow: 0 4px 6px rgba(30, 114, 87, 0.1);
+      padding: 8px 12px;
+    }
+
+
+    .product-card .card:hover {
+      background-image: linear-gradient(to right, #393135, #5b1f38);
+      box-shadow: 0 4px 6px rgba(114, 30, 72, 0.1);
+      cursor: pointer;
+    }
+
+    .video-container video {
+      width: 100%;
+      /* Ensure the video fills its container */
+    }
+
+    .title {
+      background: linear-gradient(to right, #e30047, #e30047);
+      box-shadow: 0 4px 6px rgba(30, 114, 87, 0.1);
+      width: 100%;
+    }
+
+
+
+    .title h2 {
+      text-align: center;
+      font-size: 38px;
+      color: white;
+      padding: 5px 30px;
+      font-weight: 700;
+      -bottom: 2px solid #ffffff;
+      -radius: 0px !important;
+
+    }
+
+    swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    swiper-slide {
+      width: 250px;
+    }
+
+    /* Your CSS styles */
+    /* Your CSS styles */
+
+    .swiper-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      /* Adjust the margin-top as needed */
+    }
+
+    /* Media query for smaller screens */
+    @media (max-width: 768px) {
+      .swiper-wrapper {
+        margin-top: 0;
+        /* Reset the margin-top */
+      }
+
+      .swiper-slide {
+        width: auto !important;
+        /* Set slides to auto width */
+      }
+
+      .title h2 {
+        font-size: 25px;
+      }
+    }
+
+    .about-store a {
+      background: linear-gradient(to right, #e30047, #e30047);
+      padding: 10px 20px;
+      margin: 5px 5px 5px 5px;
+      border-radius: 5px;
+    }
+
+    .about-store a:hover {
+      background-image: linear-gradient(to right, #b51447, #c5164e);
+      box-shadow: 0 4px 6px rgba(30, 114, 87, 0.1);
+    }
+
+    .about-store a i {
+      color: #c9f4e4;
+    }
+
+    @media (max-width: 768px) {
+      .swiper-slide {
+        width: 50%;
+        /* Display two slides per row */
+      }
+    }
+
+    /* For larger screens, display more slides */
+    @media (min-width: 1024px) {
+      .swiper-slide {
+        width: 25%;
+        /* Display four slides per row */
+      }
+    }
+
+    .about-store {
+      background-image: linear-gradient(to right, #1a1c1b, #171a19);
+    }
+
+    .about-store h2 {
+      color: white;
+      text-align: center;
+    }
+
+    /* Styling for the floating chat */
+    .floating-chat {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .chat-box {
+      display: none;
+      /* Additional styles for chat box */
+    }
+
+
+    .chat-box .response p {
+      color: white;
+    }
+
+    .chat-box .chat-box-response {
+      background-image: linear-gradient(to right, #393135, #5b1f38);
+      margin-left: 15px;
+      padding: 10px;
+      border-radius: 10px 10px 0px 10px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+
+    .chat-box .user {
+      background-image: linear-gradient(to right, #4c2b3b, #63092e);
+      padding: 10px;
+      border-radius: 0px 10px 10px 10px;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    /* Styles for chat toggle button */
+    .chat-toggle {
+      background: linear-gradient(to right, #5a2130, #830c31);
+      padding: 0px 20px;
+      border-radius: 8px;
+      height: 60px;
+      width: fit-content;
+      box-shadow: 0 4px 8px 0 rgba(106, 71, 83, 0.547), 0 6px 20px 0 rgba(155, 40, 65, 0.77), -6px -6px 20px 0 rgba(155, 40, 65, 0.77), -4px 8px 20px -6px rgba(155, 40, 65, 0.77);
+    }
+
+    .chat-toggle p {
+      font-weight: bold;
+    }
+
+    form #sucess_message {
+      visibility: hidden;
+    }
+  </style>
+ 
+</head>
+<body>
+
+  <%- include('../components/preloader.ejs') %>
+  <div class="main-content">
+    <%- include('../components/banner.ejs') %>
+    <%- include('../components/navbar.ejs') %>
+    <%- include('../components/hero.ejs') %>
+    <%- include('../components/best_selling_product.ejs')%>
+    <%- include('../components/affliate_product.ejs')%>
+   
+    <%- include('../components/review.ejs') %>
+    <%- include('../components/blog_post.ejs') %>
+    <%- include('../components/chat.ejs') %>
+    <%- include('../components/footer.ejs') %>
+  </div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="assets/js/home.js"></script>

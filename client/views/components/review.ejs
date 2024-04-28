@@ -1,0 +1,353 @@
+<body>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      font-family: poppins;
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    #testimonials {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .testimonial-heading {
+      letter-spacing: 1px;
+      margin: 30px 0px;
+      padding: 10px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .testimonial-heading span {
+      font-size: 1.3rem;
+      color: #f3fbf8;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .testimonial-box-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .testimonial-box {
+      width: 500px;
+      background-image: linear-gradient(to right, #1a1c1b, #171a19);
+      padding: 20px;
+      margin: 15px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .profile-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 10px;
+    }
+
+    .profile-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+    }
+
+    .name-user {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .name-user strong {
+      color: #f3fbf8;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .name-user span {
+      color: #f3fbf8;
+      font-size: 0.8rem;
+    }
+
+    .reviews {
+      color: yellow;
+    }
+
+    .box-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .client-comment p {
+      font-size: 0.9rem;
+      color: #f3fbf8;
+    }
+
+    .testimonial-box:hover {
+      transform: translateY(-10px);
+      transition: all ease 0.3s;
+    }
+
+    @media(max-width:1060px) {
+      .testimonial-box {
+        width: 45%;
+        padding: 10px;
+      }
+    }
+
+    @media(max-width:790px) {
+      .testimonial-box {
+        width: 90%;
+     
+      }
+
+      .testimonial-heading h1 {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media(max-width:340px) {
+      .box-top {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+      }
+
+      .reviews {
+        margin-top: 10px;
+      }
+    }
+
+    ::selection {
+      color: #f3fbf8;
+      background-color: #252525;
+    }
+  </style>
+  <div class="customer-reviews title mb-10">
+    <h2 class="samuyo-store-reviews">Customer Reviews</h2>
+  </div>
+  <section id="testimonials m-5">
+
+    <!--testimonials-box-container------>
+    <div class="testimonial-box-container">
+           <!--BOX-4-------------->
+           <div class="testimonial-box">
+            <!--top------------------------->
+            <div class="box-top">
+              <!--profile----->
+              <div class="profile">
+                <!--img---->
+                <div class="profile-img">
+                  <img src="https://img.freepik.com/premium-photo/confident-corporate-charm-handsome-young-african-american-businessman-standing-indoors-with-his-arms-folded_590464-31666.jpg" />
+                </div>
+                <!--name-and-username-->
+                <div class="name-user">
+                  <strong>Barry Allen</strong>
+                  <span>Germany</span>
+                </div>
+              </div>
+              <!--reviews------>
+              <div class="reviews">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i><!--Empty star-->
+              </div>
+            </div>
+            <!--Comments---------------------------------------->
+            <div class="client-comment">
+              <p>"This gadget has transformed my daily routine. The sleek design, coupled with its exceptional performance, makes it a must-have. I'm impressed with its durability and functionality."</p>
+    
+    
+              <swiper-container class="mySwiper2 mt-4" loop="true" space-between="10" slides-per-view="4" free-mode="true"
+                watch-slides-progress="true">
+                <swiper-slide>
+                  <img src="assets/img/Screenshot 2023-12-17 000703.png" />
+                </swiper-slide>
+                <swiper-slide>
+                  <img src="assets/img/Screenshot 2023-12-17 000626.png" />
+                </swiper-slide>
+                <swiper-slide>
+                  <img src="assets/img/Screenshot 2023-12-17 000617.png" />
+                </swiper-slide>
+                <swiper-slide>
+                  <img src="assets/img/Screenshot 2023-12-17 001019.png" />
+                </swiper-slide>
+               
+              </swiper-container>
+            </div>
+          </div>
+      <!--BOX-1-------------->
+      <div class="testimonial-box">
+        <!--top------------------------->
+        <div class="box-top">
+          <!--profile----->
+          <div class="profile">
+            <!--img---->
+            <div class="profile-img">
+              <img src="https://discoverymood.com/wp-content/uploads/2020/04/Mental-Strong-Women-min.jpg" />
+            </div>
+            <!--name-and-username-->
+            <div class="name-user">
+              <strong>Liam mendes</strong>
+              <span>Australia</span>
+            </div>
+          </div>
+          <!--reviews------>
+          <div class="reviews">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i><!--Empty star-->
+          </div>
+        </div>
+        <!--Comments---------------------------------------->
+        <div class="client-comment">
+          <p>"I've been using this gadget for a while now, and it's fantastic. The ease of use and the quality of its features make it stand out. I'm completely satisfied with my purchase."</p>
+
+
+          <swiper-container class="mySwiper2 mt-4" loop="true" space-between="10" slides-per-view="4" free-mode="true"
+            watch-slides-progress="true">
+            <swiper-slide>
+              <img src="assets/img/Screenshot 2023-12-12 183524.png" alt="Bald Eagle wall light" />
+            </swiper-slide>
+            <swiper-slide>
+              <img src="assets/img/Screenshot 2023-12-12 183541.png" alt="Bald Eagle wall light" />
+            </swiper-slide>
+            <swiper-slide>
+              <img src="assets/img/Screenshot 2023-12-12 183602.png" alt="Bald Eagle wall light" />
+            </swiper-slide>
+            <swiper-slide>
+              <img src="assets/img/Screenshot 2023-12-12 183631.png" alt="Bald Eagle wall light" />
+            </swiper-slide>
+          </swiper-container/>
+        </div>
+      </div>
+      <!--BOX-2-------------->
+      <div class="testimonial-box">
+        <!--top------------------------->
+        <div class="box-top">
+          <!--profile----->
+          <div class="profile">
+            <!--img---->
+            <div class="profile-img">
+              <img src="https://img.freepik.com/premium-photo/beautiful-african-woman-black-t-shirt-portrait-afro-haircut-touching-her-face-color-background-pink_431835-9153.jpg" />
+            </div>
+            <!--name-and-username-->
+            <div class="name-user">
+              <strong>Noah Wood</strong>
+              <span>Canada</span>
+            </div>
+          </div>
+          <!--reviews------>
+          <div class="reviews">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><!--Empty star-->
+          </div>
+        </div>
+        <!--Comments---------------------------------------->
+        <div class="client-comment">
+          <div class="client-comment">
+            <p>"I couldn't be happier with this gadget! It's intuitive, responsive, and well-designed. The customer service provided was also excellent. Definitely worth every penny!"</p>
+  
+  
+            <swiper-container class="mySwiper2 mt-4" loop="true" space-between="10" slides-per-view="4" free-mode="true"
+              watch-slides-progress="true">
+              <swiper-slide>
+                <img src="assets/img/Screenshot 2023-12-16 233828.png" />
+              </swiper-slide>
+              <swiper-slide>
+                <img src="assets/img/Screenshot 2023-12-16 233846.png" />
+              </swiper-slide>
+              <swiper-slide>
+                <img src="assets/img/Screenshot 2023-12-16 234001.png" />
+              </swiper-slide>
+              <swiper-slide>
+                <img src="assets/img/Screenshot 2023-12-16 233907.png" />
+              </swiper-slide>
+             
+            </swiper-container>
+          </div>
+        </div>
+      </div>
+      <!--BOX-3-------------->
+      <div class="testimonial-box">
+        <!--top------------------------->
+        <div class="box-top">
+          <!--profile----->
+          <div class="profile">
+            <!--img---->
+            <div class="profile-img">
+              <img src="https://img.freepik.com/premium-photo/portrait-businessman_884296-961.jpg" />
+            </div>
+            <!--name-and-username-->
+            <div class="name-user">
+              <strong>Oliver Queen</strong>
+              <span>United State</span>
+            </div>
+          </div>
+          <!--reviews------>
+          <div class="reviews">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i><!--Empty star-->
+          </div>
+        </div>
+        <!--Comments---------------------------------------->
+        <div class="client-comment">
+          <p>Outstanding product! The gadget exceeded my expectations. It's incredibly user-friendly and packed with features. I highly recommend it to anyone looking for a reliable gadget</p>
+
+
+          <swiper-container class="mySwiper2 mt-4" loop="true" space-between="10" slides-per-view="4" free-mode="true"
+            watch-slides-progress="true">
+            <swiper-slide>
+              <img src="assets/img/Screenshot 2023-12-16 235118.png" />
+            </swiper-slide>
+            <swiper-slide>
+              <img src="assets/img/Screenshot 2023-12-16 235100.png" />
+            </swiper-slide>
+            <swiper-slide>
+              <img src="assets/img/Screenshot 2023-12-16 235254.png" />
+            </swiper-slide>
+            <swiper-slide>
+              <img src="assets/img/Screenshot 2023-12-16 235211.png" />
+            </swiper-slide>
+
+            </swiper-slide>
+        
+          </swiper-container>
+        </div>
+      </div>
+ 
+    </div>
+  </section>
+</body>

@@ -1,0 +1,46 @@
+<div class="samuyo-store-blog-post title">
+    <h2>Latest Blog Post</h2>
+</div>
+<div class="container mx-auto lg:px-8 mt-6 m-4">
+    <div class="blog-post product-card  mb-4">
+        <div class="grid grid-cols-1  md:grid-cols-1  gap-4 lg:grid-cols-2 ">
+            <% blogPosts.slice(0, 2).forEach(blogPost=> { %>
+                <div class="w-full card rounded-lg shadow dark:bg-gray-800 h-auto" style="background: linear-gradient(
+                    to right,
+                    #1a1c1b 0%,
+                    #39252fb2 100%
+                  ),
+                  url('<%= blogPost.thumbnail %>');">
+                                           
+                  <div class="small-thubnail p-2 m-2">
+                    <img src="<%= blogPost.thumbnail %>" alt="<%= blogPost.title %>" class="rounded-md" style="height: 100px !important;width:100px !important">
+                   </div>
+                    <div class="flex justify-center align-middle align-middle p-2 m-2">
+                 
+                        <div class="<%=blogPost.title%>">
+
+                            <div class="">
+                                <a href="#">
+                                    <h5 class="text-xl font-semibold tracking-tight text-white dark:text-white">
+                                        <%= blogPost.title %>
+                                    </h5>
+                                </a>
+
+                                <% var slicedDescription=blogPost.description.slice(0, 300); %>
+                                    <div class="text-white">
+                                        <%- slicedDescription %>
+                                    </div>
+                                    <div class="flex items-center mt-1.5 mb-1">
+                                    </div>
+                                    <a href="#"
+                                        class="read-more-about-<%=blogPost.title%> add-to-cart text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center">Read
+                                        More >></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+
+    </div>
+    </div>

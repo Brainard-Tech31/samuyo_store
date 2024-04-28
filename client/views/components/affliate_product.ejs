@@ -1,0 +1,58 @@
+<div class="title">
+    <h2>Our Partner Best Selling Product</h2>
+  </div>
+  <div class="affliate-swiper " >
+    <div class="swiper-wrapper">
+
+      <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="20"
+        free-mode="true" autoplay="true" delay="3000" slides-per-view="auto">
+        <% products.slice(0, 6).forEach(product=> { %>
+          <swiper-slide>
+            <div class="product-card <%=product.title%>">
+              <% let Affiliate_product=product.product_option %>
+                <% if (Affiliate_product==='Affliate product' ) { %>
+                  <div class="flex justify-center align-middle">
+                    <div class="w-full card max-w-sm   rounded-lg shadow dark:bg-gray-800 "
+                      style=" background-image: linear-gradient(to right, #1a1c1b, #171a19);">
+                      <a href="#">
+                        <div class=" <%=product.title%> video-container">
+                          <!-- Video overlay to prevent text selection -->
+                          <div class="video-overlay"></div>
+                          <!-- Embed YouTube video -->
+                          <a href="<%=product.product_link%>" target="_blank"></a>
+                          <div class="video-background"
+                            style="background-color: transparent;width: 100%;height: 100;z-index: 2;pointer-events: none;position: relative;">
+                            <div class="video-container" style="margin: 15px !important;">
+                              <iframe width="100%" height="200px"
+                                src="<%= product.video %>&autoplay=1&mute=1&showinfo=0"
+                                title="<%=product.title%>" frame="0"
+                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    </a>
+                    <div class="px-5 pb-5">
+                      <a href="#">
+                        <h5 class="text-xl font-semibold tracking-tight text-white dark:text-white">
+                          <%=product.title%>
+                        </h5>
+                      </a>
+
+                      <a href="#"
+                        class="add-to-cart text-white font-medium rounded-lg text-sm px-4 py-4 text-center">Buy
+                        from
+                        Samuyo store</a>
+                    </div>
+                  </div>
+            </div>
+            <% } %>
+    </div>
+    </swiper-slide>
+    <% })%>
+      </swiper-container>
+
+
+  </div>

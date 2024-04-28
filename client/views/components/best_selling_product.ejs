@@ -1,0 +1,51 @@
+<div class="best-selling-product title ">
+    <h2>Best-selling product</h2>
+  </div>
+<div class="container mx-auto lg:px-8 mt-6">
+    <div class="product-card grid grid-cols-1 lg:grid-cols-4 gap-2 mb-2">
+        <% products.slice(0, 8).forEach(product=> { %> <% let Best_Selling_Product=product.product_option %>
+        <% if (Best_Selling_Product==='Best selling product' ) { %>
+        <div class="flex justify-center align-middle">
+            <a href="<%=product.product_link%>" target="_blank">
+                <div class="<%=product.title%> w-full card max-w-sm rounded-lg shadow dark:bg-gray-800"
+                    style="background-image: linear-gradient(to right, #1a1c1b, #171a19)">
+                    <div class="<%=product.title%> video-container">
+                        <!-- Video overlay to prevent text selection -->
+                        <div class="video-overlay"></div>
+                        <!-- Embed YouTube video -->
+                            <div class="video-background" style="
+                                background-color: transparent;
+                                width: 100%;
+                                height: 100 !important;
+                                z-index: 2;
+                                pointer-events: none;
+                                position: relative;
+                            ">
+                            <div class="video-container" style="margin: 15px !important">
+                                <iframe id="videoFrame" width="100%" height="250px"
+                                    src="<%= product.video %>?autoplay=1&mute=1&showinfo=0" title="<%=product.title%>"
+                                    frame="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="px-5 pb-5">
+                        <a href="#">
+                            <h5 class="text-xl font-semibold tracking-tight text-white dark:text-white mb-2">
+                                <%=product.title%>
+                            </h5>
+                        </a>
+
+                        <a href="<%=product.product_link%>" target="_blank"
+                            class="add-to-cart text-white font-medium rounded-lg text-sm px-4 py-4 text-center">Buy
+                            from Samuyo store</a>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <% } %>
+        <% }); %>
+    </div>
+</div>

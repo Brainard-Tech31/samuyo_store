@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <% products.forEach(product=> { %>
+    <title>
+      <%= product.title %>
+    </title>
+  <meta name="description" content="<%=product.description%>">
+  <% })%>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords"
+    content="Samuyo Store , online store, e-commerce store, shopping, shop, retail, business , electronics , cool gadgets, e-commerce platform">
+  <meta name="author" content="Brainard-Tech">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.cdnfonts.com/css/raleway-5" rel="stylesheet">
+ 
+</head>
+<style>
+  body {
+    background-image: linear-gradient(to right, #2f2d2e, #1d171a);
+    overflow-x: hidden;
+    box-sizing: -box;
+    font-family: 'Raleway', sans-serif !important;
+  }
+
+  a,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  button,
+  span,
+  strong,
+  input {
+    font-family: 'Raleway', sans-serif !important;
+  }
+
+  .product-card {
+    margin-bottom: 30px;
+
+  }
+
+  .product-card .add-to-cart {
+    color: white;
+    background: linear-gradient(to right, #e30047, #e30047);
+    box-shadow: 0 4px 6px rgba(30, 114, 87, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .banner a {
+    color: white;
+    background: linear-gradient(to right, #e30047, #e30047);
+    box-shadow: 0 4px 6px rgba(30, 114, 87, 0.1);
+    padding: 8px 12px;
+  }
+
+
+  .product-card .card:hover {
+    background-image: linear-gradient(to right, #35675563, #146446);
+    box-shadow: 0 4px 6px rgba(30, 114, 87, 0.1);
+    cursor: pointer;
+  }
+
+  .video-container video {
+    width: 100%;
+  }
+</style>
+<body>
+  <%- include('../components/preloader.ejs') %>
+    <div class="main-content">
+      <%- include('../components/navbar.ejs') %>
+        <div class="">
+          <div class="pt-6">
+            <% products.forEach(product=> { %>
+              <% if (product.title.toLowerCase().includes(searchTerm.toLowerCase())) { %>
+                <!-- Image gallery -->
+                <a href="<%=product.product_link%>" target="_blank">
+                  <div class=" px-4 pb-3 pt-5 sm:px-6 lg:px-24 lg:pb-5 lg:pt-8">
+                    <h1 class="text-2xl text-center font-bold tracking-tight text-white sm:text-3xl">
+                      <%= product.title %>
+                    </h1>
+                  </div>
+                  <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+                    <div class="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
+                      <img src="<%= product.thumbnail.split(',')[0].trim() %>"
+                        alt="Two each of gray, white, and black shirts laying flat."
+                        class="h-full w-full object-cover object-center">
+                    </div>
+
+                    <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+                      <div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+                        <img src="<%= product.thumbnail.split(',')[1].trim() %>"
+                          alt="Model wearing plain black basic tee." class="h-full w-full object-cover object-center">
+                      </div>
+
+                      <div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+                        <div class="<%=product.title%> video-container">
+                          <!-- Video overlay to prevent text selection -->
+                          <div class="video-overlay"></div>
+                          <!-- Embed YouTube video -->
+                          <a href="<%=product.product_link%>" target="_blank"></a>
+                          <div class="video-background"
+                            style="background-color: transparent;width: 100%;height: 100 !important;z-index: 2;pointer-events: none;position: relative;">
+                            <div class="video-container">
+                              <iframe id="videoFrame" width="100%" height="250px"
+                                src="<%= product.video %>?autoplay=1&mute=1&showinfo=0" title="<%=product.title%>"
+                                frame="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                            </div>
+                         </div>
+                </a>
+          </div>
+        </div>
+
+    </div>
+    <div class="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
+      <img src="<%= product.thumbnail.split(',')[2].trim() %>" alt="Model wearing plain white basic tee."
+        class="h-full w-full object-cover object-center">
+    </div>
+    </div>
+    </a>
+    <!-- Product info -->
+    <div
+      class="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
+      <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+        <h1 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+          <%= product.title %>
+        </h1>
+      </div>
+
+      <!-- Options -->
+      <div class="mt-4 lg:row-span-3 lg:mt-0">
+        <h2 class="sr-only">Product information</h2>
+
+        <div class="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
+          <a href="#" title=""
+            class="flex items-center justify-center py-2.5 px-5 text-sm font-medium text-white bg-pink-800 rounded-md"
+            role="button">
+            <svg class="w-5 h-5 -ms-2 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6" />
+            </svg>
+            Buy from Samuyo store
+          </a>
+
+          <a href="/trending_product" title=""
+            class="text-white mt-4 sm:mt-0 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 flex items-center justify-center"
+            role="button">
+
+            <svg class="w-5 h-5 -ms-2 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z" />
+            </svg>
+
+            see more
+          </a>
+        </div>
+
+        <hr class="my-6 md:my-8 border-gray-200" />
+        <div class="container mx-auto lg:px-8 mt-6 ">
+          <div class="product-card grid grid-cols-1 lg:grid-cols-1 gap-2 mb-2">
+            <% products.slice(0, 4).forEach(product=> { %>
+              <% let Best_Selling_Product=product.product_option %>
+                <% if (Best_Selling_Product==='Best selling product' ) { %>
+                  <div class="flex justify-center align-middle">
+                    <a href="<%=product.product_link%>" target="_blank">
+                      <div class="<%=product.title%> w-full card max-w-sm   rounded-lg shadow dark:bg-gray-800 "
+                        style="  background-image: linear-gradient(to right, #1a1c1b, #171a19);">
+
+                        <div class="<%=product.title%> video-container">
+                          <!-- Video overlay to prevent text selection -->
+                          <div class="video-overlay"></div>
+                          <!-- Embed YouTube video -->
+                          <a href="<%=product.product_link%>" target="_blank"></a>
+                          <div class="video-background"
+                            style="background-color: transparent;width: 100%;height: 100 !important;z-index: 2;pointer-events: none;position: relative;">
+                            <div class="video-container" style="margin: 15px !important;">
+                              <iframe id="videoFrame" width="100%" height="250px"
+                                src="<%= product.video %>?autoplay=1&mute=1&showinfo=0" title="<%=product.title%>"
+                                frame="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                            </div>
+                          </div>
+                    </a>
+                  </div>
+
+                  <div class="px-5 pb-5">
+                    <a href="#">
+                      <h5 class="text-xl font-semibold tracking-tight text-white dark:text-white mb-2">
+                        <%=product.title%>
+                      </h5>
+                    </a>
+
+                    <a href="<%=product.product_link%>" target="_blank"
+                      class="add-to-cart  text-white font-medium rounded-lg text-sm px-4 py-4 text-center">Buy
+                      from Samuyo store</a>
+                  </div>
+
+          </div>
+          </a>
+        </div>
+        <% } %>
+          <% }); %>
+      </div>
+    </div>
+    </div>
+    <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
+      <!-- Description and details -->
+      <div>
+        <h3 class="sr-only">Description</h3>
+
+        <div class="space-y-6">
+
+          <div class="text-base text-white"><%- product.description %></div>
+
+        </div>
+      </div>
+
+
+    </div>
+    </div>
+    <% } %>
+      <% }); %>
+  </div>
+  </div>
+
+  <%- include('../components/footer.ejs') %>
+  </div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>

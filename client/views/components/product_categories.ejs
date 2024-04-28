@@ -1,0 +1,38 @@
+<div class="product-categories title">
+    <h2>Product Categories</h2>
+  </div>
+  <div class="store-product-categories">
+    <div class="swiper-wrapper">
+
+      <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="20"
+        free-mode="true" autoplay="true" delay="3000" slides-per-view="auto">
+        <% for (i=0; i < 6; i++) { %>
+          <swiper-slide>
+            <div class=" product-card mb-4">
+              <div class="w-full card max-w-sm   rounded-lg shadow dark:bg-gray-800 "
+                style="background:url('https://i.etsystatic.com/25590731/r/il/ff6985/5197551226/il_570xN.5197551226_qlck.jpg');background-position: center; height: 200px;">
+
+                <div class="px-5 pb-5 flex justify-center items-center flex-col mt-8">
+                  <a href="#">
+                    <!-- Product title -->
+                    <h5 class="text-xl font-semibold tracking-tight text-white dark:text-white mb-3 mt-3">
+                      Electronics
+                    </h5>
+                  </a>
+
+                  <a href="#"
+                    class="discover now add-to-cart text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-black hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300">
+                    <!-- Add to cart button -->
+                    Discover Now
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </swiper-slide>
+          <% } %>
+      </swiper-container>
+
+
+    </div>
+  </div>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Samuyo store is an online e-commerce platform that deals with electronics and gadgets. Find a wide range of electronic products, gadgets, and accessories at competitive prices.">
+  <meta name="keywords"
+    content="Samuyo Store , online store, e-commerce store, shopping, shop, retail, business , electronics , cool gadgets, e-commerce platform">
+  <meta name="author" content="Brainard-Tech">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>Upload | CRUD products</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<style>
+  body {
+    background-image: linear-gradient(to right, #2f2d2e, #1d171a);
+    overflow-x: hidden;
+  }
+
+
+  a,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  button,
+  span,
+  strong,
+  input {
+    font-family: 'Raleway', sans-serif !important;
+  }
+
+
+
+
+  .about-store a {
+    background-image: linear-gradient(to right, #b51447, #c5164e);
+    padding: 10px 20px;
+    margin: 5px 5px 5px 5px;
+    border-radius: 5px;
+  }
+
+  .about-store a:hover {
+    background: linear-gradient(to right, #e30047, #e30047);
+    background: linear-gradient(to right, #e30047, #e30047);
+  }
+
+  .about-store a i {
+    color: #c9f4e4;
+  }
+
+  @media (max-width: 768px) {
+    .swiper-slide {
+      width: 50%;
+      /* Display two slides per row */
+    }
+  }
+
+  /* For larger screens, display more slides */
+  @media (min-width: 1024px) {
+    .swiper-slide {
+      width: 25%;
+      /* Display four slides per row */
+    }
+  }
+
+  .about-store {
+    background-image: linear-gradient(to right, #1a1c1b, #171a19);
+  }
+
+  .about-store h2 {
+    color: white;
+    text-align: center;
+  }
+
+  .crud-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .upload {
+    background: linear-gradient(to top,
+        #23020d 30%,
+        #1a1013 70%),
+      url("https://developers.google.com/static/streetview/publish/images/upload.png");
+    width: 96%;
+    height: fit-content;
+
+    white-space: normal;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+
+    padding: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(44, 37, 31, 0.547), 0 6px 20px 0 rgba(22, 18, 16, 0.77);
+    margin: 20px;
+
+  }
+
+  .upload form input,
+  .upload form button,
+  .upload form select {
+    height: 50px;
+  }
+
+  .upload button {
+    background-image: linear-gradient(to right, #b51447, #c5164e);
+  }
+
+  .upload button:hover {
+    background: linear-gradient(to right, #e30047, #e30047);
+    box-shadow: 0 4px 8px 0 rgba(106, 71, 83, 0.547), 0 6px 20px 0 rgba(155, 40, 65, 0.77);
+  }
+
+  form label,
+  p {
+    color: #f4c9db !important;
+  }
+</style>
+<body>
+  <%- include('../components/preloader.ejs') %>
+    <div class="main-container">
+      <%- include('../components/navbar.ejs') %>
+
+        <div class="crud-container ">
+
+          <div class="upload ">
+
+            <div class=" p-4   rounded-lg shadow sm:p-6 md:p-8  dark:border-gray-700 ">
+              <form class=" grid md:grid-cols-12 gap-3" action="/upload_product" method="post" id="upload">
+                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-6xl">UPLOAD</h2>
+                <div class="col-span-6">
+                  <div>
+                    <label for="title"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+                    <input type="text" name="title" id="title"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                      placeholder="Title">
+                  </div>
+                  <div>
+                    <label for="description"
+                      class="block mb-2 mt-3 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                    <!-- Replace the input field with a textarea for TinyMCE -->
+                    <textarea name="description" id="description" placeholder="Description"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"></textarea>
+                  </div>
+
+
+
+                  <div>
+                    <label for="product_option"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-3">Product option</label>
+                    <select id="product_option" name="product_option"
+                      class="border bg-white border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                      <option value="Affiliate product">Affiliate product</option>
+                      <option value="Latest blog post">Latest blog post</option>
+                      <option value="Product categories" selected>Product categories</option>
+                      <option value="Best selling product">Best selling product</option>
+                    </select>
+
+                  </div>
+
+
+                </div>
+                <div class="col-span-6">
+                  <div>
+                    <label for="video"
+                      class="block mb-2 mt-3 text-sm font-medium text-gray-900 dark:text-white">Video</label>
+                    <input type="text" name="video" id="video" placeholder="video"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                  </div>
+                  <div>
+                    <label for="thumbnail"
+                      class="block mb-2 mt-3 text-sm font-medium text-gray-900 dark:text-white">Thumbnail</label>
+                    <input type="text" name="thumbnail" id="thumbnail" placeholder="thumbnail"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                  </div>
+                  <div>
+                    <label for="product_link"
+                      class="block mb-2 mt-3 text-sm font-medium text-gray-900 dark:text-white">Product Link</label>
+                    <input type="text" name="product_link" id="product_link" placeholder="product_link"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                  </div>
+                  <label for="upload" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-3">Upload
+                    now</label>
+                  <button type="submit"
+                    class=" w-full text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center">UPLOAD</button>
+
+                </div>
+
+
+
+              </form>
+
+
+              <p class="mt-3">All field are to fill with correct data.</p>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="crud-container ">
+
+          <div class="upload ">
+
+            <div class=" p-4   rounded-lg shadow sm:p-6 md:p-8  dark:border-gray-700 ">
+              <form class=" grid md:grid-cols-12 gap-3" action="/delete_product" method="post" id="delete">
+                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-6xl">DELETE</h2>
+                <div class="col-span-6">
+                  <div>
+                    <label for="title"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+                    <input type="text" name="title" id="title"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                      placeholder="Title">
+                  </div>
+
+                  <div>
+                    <label for="product_option"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-3">Product option</label>
+                    <select id="product_option" name="product_option"
+                      class="border bg-white border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                      <option value="blog_posts">blog_posts</option>
+                      <option value="uploaded_products">uploaded_products</option>
+                    </select>
+
+                  </div>
+                  <label for="upload" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-3">Upload
+                    now</label>
+                  <button type="submit"
+                    class=" w-full text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center">DELETE</button>
+
+                </div>
+
+
+              </form>
+
+
+              <p class="mt-3">All field are to fill with correct data.</p>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="crud-container ">
+
+          <div class="upload ">
+
+            <div class=" p-4   rounded-lg shadow sm:p-6 md:p-8  dark:border-gray-700 ">
+              <form class=" grid md:grid-cols-12 gap-3" action="/upload_blog_post" method="post" id="delete">
+                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-6xl">BLOG POST</h2>
+                <div class="col-span-6">
+                  <div>
+                    <label for="title"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+                    <input type="text" name="title" id="title"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                      placeholder="Title">
+                  </div>
+                  <div>
+                    <label for="description"
+                      class="block mb-2 mt-3 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                    <!-- Replace the input field with a textarea for TinyMCE -->
+                    <textarea name="description" id="description" placeholder="Description"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"></textarea>
+                  </div>
+
+                  <div>
+                    <label for="Thumbnail"
+                      class="block mb-2 mt-3 text-sm font-medium text-gray-900 dark:text-white">Thumbnail</label>
+                    <input type="text" name="thumbnail" id="thumbnail" placeholder="Thumbnail"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                  </div>
+                  <div>
+                    <label for="author"
+                      class="block mb-2 mt-3 text-sm font-medium text-gray-900 dark:text-white">Author</label>
+                    <input type="text" name="Author" id="author"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                      placeholder="author">
+                  </div>
+
+                  <div>
+
+                    <label for="product_option"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-3">Product option</label>
+                    <select id="product_option" name="product_option"
+                      class="border bg-white border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                      <option value="Affliate product">Affliate product</option>
+                      <option value="Latest blog post">Latest blog post</option>
+                      <option value="Product categories" selected>Product categories</option>
+                      <option value="Best selling product">Best selling product</option>
+                    </select>
+
+                  </div>
+                  <label for="upload" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-3">Upload
+                    now</label>
+                  <button type="submit"
+                    class=" w-full text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center">PUBLISH</button>
+
+                </div>
+
+
+              </form>
+
+
+              <p class="mt-3">All field are to fill with correct data.</p>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="about-store p-8 mt-10">
+          <h2 class=" text-lg">Samuyo Store.com is a reliable and professional online shopping destination featuring a
+            wide
+            range of popular products. Dedicated to ensuring authenticity and eliminating counterfeit items, Samuyo
+            Store
+            highlights premium shopping options with a focus on high-quality products. Our recommendations reflect
+            products
+            we genuinely appreciate! Please be aware that by using the links shared on this platform, we may earn a
+            percentage of sales or other benefits. We sincerely appreciate your support when you choose to use our
+            suggested
+            links!"</h2>
+          <div class="social-icons mt-5">
+            <a href="#">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/941kl4g9agelre3ov8lkpsnvan5ystx5alyut5hfcecx0w27/tinymce/7/tinymce.min.js"
+  referrerpolicy="origin"></script>
+<script src="assets/js/upload.js"></script>

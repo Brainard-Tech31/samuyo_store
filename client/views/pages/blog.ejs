@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Welcome to Samuyo Store: your ultimate destination for electronics and gadgets. Explore our extensive collection and find the perfect tech companion at unbeatable prices and stay ahead of the curve with our latest releases and uncover must-have accessories to complement your tech arsenal. ">
+  <meta name="keywords"
+    content="Samuyo Store , online store, e-commerce store, shopping, shop, retail, business , electronics , cool gadgets, e-commerce platform">
+  <meta name="author" content="Brainard-Tech">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>Blog Post</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.cdnfonts.com/css/raleway-5" rel="stylesheet">
+
+</head>
+<style>
+  body {
+    background-image: linear-gradient(to right, #181518, #161214)
+  }
+  
+  .product-card .add-to-cart {
+    color: white;
+    background: linear-gradient(to right, #e30047, #e30047);
+    box-shadow: 0 4px 6px rgba(30, 114, 87, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+</style>
+
+<body>
+  <%- include('../components/preloader.ejs') %>
+    <div class="main-content">
+      <%- include('../components/navbar.ejs') %>
+        <div class="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
+          <div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#3e192c] opacity-30"
+            style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+          </div>
+        </div>
+        <div class=" py-10 sm:py-15">
+          <div class="mx-auto max-w-full px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl lg:mx-0">
+              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-6xl">From The Blog</h2>
+              <p class="mt-2 text-lg leading-8 text-gray-100 mb-4">Learn how to grow your business with our expert advice.
+              </p>
+            </div>
+            <div class="blog-post product-card  mb-4">
+            
+            
+            <div class="grid grid-cols-2 gap-4 md:grid-cols-1 lg:grid-cols-1">
+                <% for (let i = 0; i < Math.min(4, blogPosts.length); i++) { %>
+                    <div class="w-full card rounded-lg shadow dark:bg-gray-800"
+                        style="background: linear-gradient(to right, #1a1c1b 0%, #39252fb2 100%), url('<%= blogPosts[i].thumbnail %>');">
+                        <div class="small-thubnail p-2 m-2">
+                            <img src="<%= blogPosts[i].thumbnail %>" alt="<%= blogPosts[i].title %>" class="rounded-md"
+                                style="height: 100px !important;width:100px !important">
+                        </div>
+                        <div class="flex justify-center align-middle align-middle p-2 m-2">
+                            <div class="<%= blogPosts[i].title %>">
+                                <div class="">
+                                    <a href="#">
+                                        <h5 class="text-xl font-semibold tracking-tight text-white dark:text-white">
+                                            <%= blogPosts[i].title %>
+                                        </h5>
+                                    </a>
+                                    <div class="description text-white">
+                                        <%- blogPosts[i].description.slice(0, 350) %> <!-- No need to slice here -->
+                                    </div>
+                                    <div class="flex items-center mt-1.5 mb-1"></div>
+                                    <a href="#"
+                                        class="read-more-about-<%= blogPosts[i].title %> add-to-cart text-white font-medium rounded-lg text-sm px-5 py-4 text-center">Read
+                                        More >></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+            
+      
+          </div>
+          </div>
+        </div>
+        <%- include('../components/footer.ejs') %>
+    </div>
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>

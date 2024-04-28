@@ -1,0 +1,545 @@
+<style>
+  nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Adjust the z-index as needed */
+  }
+
+  label,
+  button {
+    font-family: 'Raleway', sans-serif !important;
+  }
+
+  .navbar-bg {
+    background: linear-gradient(to right, #e30047, #e30047);
+  }
+
+  .navbar-bg ul li a {
+    color: white;
+    padding: 2px;
+    /* Set the border initially to be invisible */
+    border-bottom: none;
+    /* Add transition for smooth animation */
+    transition: border-bottom 0.1s ease;
+    font-family: 'Raleway', sans-serif !important;
+    border-bottom: 2px solid transparent;
+    border-radius: 0px !important;
+  }
+
+  .navbar-bg .brand {
+    color: white;
+  }
+
+  .navbar-bg ul li a:hover {
+    color: #f0edee;
+    border-bottom: 2px solid rgb(222, 214, 214);
+    border-radius: 0px !important;
+
+  }
+
+  /* Define a class for the search results dropdown */
+  .search-results {
+    margin-top: 20px;
+    margin-left: 10px;
+    background-image: linear-gradient(to right, #281a1f, #3f1325);
+    
+    /* Adjust width as needed */
+    max-height: calc(100vh - 70vh);
+    /* Adjust height as needed; subtract the height of your navbar */
+    position: fixed;
+    padding: 20px;
+    top: 3.9rem;
+    /* Height of your navbar */
+  
+    /* Adjust left position as needed */
+    z-index: 1000;
+    /* Adjust the z-index as required */
+    overflow-y: auto;
+    border-radius: 4px;
+    /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Example box shadow */
+    display: none;
+  
+  }
+
+  @media (max-width:760px) {
+    .search-results{
+      width: 100% !important;
+      margin: 0px;
+     border-radius: 0px !important;
+    }
+  }
+
+  /* Additional styling for search result items if needed */
+  .search-results a {
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .search-results .product {
+    border-radius: 8px;
+    width: 100%;
+    padding: 10px;
+    background-color: #e30047;
+    margin-top: 5px;
+  }
+
+  .progress-container {
+    width: 100%;
+    height: 8px;
+    background: #fff;
+
+  }
+
+  .progress-bar {
+    height: 8px;
+    background-image: linear-gradient(to right, #301a22, #54122e);
+    width: 0%;
+
+  }
+</style>
+
+<nav class="dark:bg-gray-90 navbar-bg">
+  <div class=" flex flex-wrap justify-between md:pl-10 lg:pl-10 p-4 w-full">
+   <div class="flex-row-1">
+    <div class="flex flex-wrap justify-between ">
+      <button data-collapse-toggle="navbar-search" type="button"
+      class="inline-flex items-center p-2 w-8 h-10 justify-center text-sm text-white rounded-lg md:hidden   focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-black "
+      aria-controls="navbar-search" aria-expanded="false">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15" />
+      </svg>
+    </button>
+      <a href="#" class="brand flex items-center justify-between pr-1">
+        <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" /> -->
+        <span class="self-center md:text-2xl lg:text-2xl text-xl font-semibold whitespace-nowrap capitalize dark:text-white">Samuyo Store</span>
+      </a>
+     
+     
+    </div>
+    
+   </div>
+   <div class="relative ">
+    <div class="absolute inset-y-0 start-0 flex items-center ps-2 pointer-events-none">
+      <button>
+        <svg class="w-3 h-3 text-white dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+          fill="none" viewBox="0 0 20 20">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+        </svg>
+
+      </button>
+      <span class="sr-only">Search icon</span>
+    </div>
+
+    <input type="text" id="search-navbar"
+      class="block md: p-2 ps-10 text-sm border-gray-300 rounded-lg bg-gray-50"
+      placeholder="Search... ">
+
+    <!-- Dropdown container for search results -->
+    <div id="searchResults" class="search-results  md:w-30 lg:w-30 left-0  md:left-52 md:w-50 lg:left-52 lg:w-50" >
+
+      <!-- Search results will be displayed here -->
+    </div>
+</div>
+  <div class="flex-row-2">
+    <div class="flex md:order-2">
+  
+    </div>
+   
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
+      <div class="relative mt-3 md:hidden">
+        
+   
+      </div>
+      <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0">
+      
+        <li>
+          <a href="/" class="block py-2 px-3 text-white rounded md:bg-transparent md:p-0 " aria-current="page">HOME</a>
+        </li>
+        <li>
+          <a href="/trending_product"
+            class="block py-2 px-3  rounded hover:bg-black md:hover:bg-transparent md:p-0 dark:text-white dark:hover:bg-black dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">TRENDING
+            PRODUCT</a>
+        </li>
+        <li>
+          <a href="/blog"
+            class="block py-2 px-3  rounded hover:bg-black md:hover:bg-transparent md:p-0 dark:text-white dark:hover:bg-black dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">BLOG</a>
+        </li>
+        <li>
+          <a href="/about"
+            class="block py-2 px-3  rounded hover:bg-black md:hover:bg-transparent md:p-0 dark:text-white dark:hover:bg-black dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">ABOUT</a>
+        </li>
+        <li>
+          <a href="/contact"
+            class="block py-2 px-3  rounded hover:bg-black md:hover:bg-transparent md:p-0 dark:text-white dark:hover:bg-black dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">CONTACT
+            US</a>
+        </li>
+
+        <li>
+          <style>
+            #dropdownNavbar {
+              margin-top: 30px !important;
+              background-image: linear-gradient(to right, #1a1c1b, #3f1325);
+              width: 350px !important;
+              height: fit-content;
+              position: relative;
+              overflow-y: auto;
+              padding: 20px;
+            }
+
+            #dropdownNavbar form button {
+              background: linear-gradient(to right, #e30047, #e30047);
+              padding: 18px;
+            }
+
+            #dropdownNavbar form input {
+              padding: 16px;
+              width: 100%;
+            }
+          </style>
+          <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" onclick="toggleDropdown()"
+            class="dropdown-content flex items-center justify-between w-full py-2 px-3 text-white rounded  md:hover:bg-transparent  md:p-0 md:w-auto dark:focus:text-white md:dark:hover:bg-transparent"
+            style="margin-top: 2px;">LOGIN<svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m1 1 4 4 4-4" />
+            </svg></button>
+          <!-- Dropdown menu -->
+          <div id="dropdownNavbar" class="z-10 hidden font-normal  divide-y  rounded-lg shadow w-44 ">
+            <form class="space-y-6" action="/login" method="post" id="loginForm">
+              <h5 class="text-xl font-medium text-white">Log in to our platform</h5>
+              <div>
+                <label for="email" class="block mb-2 text-sm font-medium text-white">Your email</label>
+                <input type="email" name="email" id="email" class=" text-sm rounded-lg  dark:text-white"
+                  placeholder="name@company.com" required>
+              </div>
+              <div>
+                <label for="password" class="block mb-2 text-sm font-medium text-white">Your password</label>
+                <input type="password" name="password" id="password" placeholder="••••••••" class=" text-sm rounded-lg "
+                  required>
+              </div>
+
+
+              <button type="submit"
+                class="w-full text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center">Login
+                to your account</button>
+              <button onclick="googleSignIn()" type="button"
+                class="w-full text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center"><i
+                  class="fab fa-google-plus text-2xl"></i></button>
+              <div class="text-sm font-medium text-white">
+                Not registered? <a href="#" class="text-white" onclick="toggleForms()">Create account</a>
+              </div>
+            </form>
+            <form class="space-y-6 border-0" action="/signup" method="post" id="signupForm">
+              <h5 class="text-xl font-medium text-white border-0">Signup to our platform</h5>
+              <div>
+                <label for="email" class="block mb-2 text-sm font-medium text-white">Your email</label>
+                <input type="email" name="email" id="email" class=" text-sm rounded-lg  dark:text-white"
+                  placeholder="name@company.com" required>
+              </div>
+              <div>
+                <label for="password" class="block mb-2 text-sm font-medium text-white">Your password</label>
+                <input type="password" name="password" id="password" placeholder="••••••••" class=" text-sm rounded-lg "
+                  required>
+              </div>
+
+              <button type="submit"
+                class="w-full text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center">Signup
+                to your account</button>
+              <div class="text-sm font-medium text-white">
+                Already have an account? <a href="#" class="text-white" onclick="toggleForms()">login</a>
+              </div>
+            </form>
+
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  </div>
+  <div class="progress-container hidden md:block lg:block">
+    <div class="progress-bar" id="progess-indicator-bar"></div>
+  </div>
+</nav>
+
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
+
+<script>
+
+  function pageScroller() {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+    document.getElementById("progess-indicator-bar").style.width = scrolled + "%";
+  }
+
+  window.onscroll = function () { pageScroller() };
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC2LROkzNjog1m0qkYv31FXj8UN4qeecDI",
+    authDomain: "getmequality-4f67e.firebaseapp.com",
+    projectId: "getmequality-4f67e",
+    storageBucket: "getmequality-4f67e.appspot.com",
+    messagingSenderId: "265416068101",
+    appId: "1:265416068101:web:2ab927923a63c2bb59206c",
+    measurementId: "G-L1Z1QP85P8"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  async function googleSignIn() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    try {
+      const result = await auth.signInWithPopup(provider);
+      const user = result.user;
+      console.log('User signed in:', user.email);
+      // Handle user authentication and redirect to desired page
+    } catch (error) {
+      console.error('Error signing in:', error);
+    }
+  }
+
+</script>
+
+<script>
+
+  function toggleForms() {
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+
+    if (loginForm.style.display === 'none') {
+      loginForm.style.display = 'block';
+      signupForm.style.display = 'none';
+    } else {
+      loginForm.style.display = 'none';
+      signupForm.style.display = 'block';
+    }
+  }
+  function toggleDropdown() {
+    const dropdownContent = document.getElementsByClassName('dropdown-content')[0];
+    const signupForm = document.getElementById('signupForm');
+    signupForm.style.display = 'none';
+  }
+  async function googleSignIn() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    try {
+      const result = await auth.signInWithPopup(provider);
+      const user = result.user;
+      console.log('User signed in:', user);
+      // Handle user authentication and redirect to desired page
+    } catch (error) {
+      console.error('Error signing in:', error);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('search-navbar');
+    const searchResults = document.getElementById('searchResults');
+    const searchResultTitle = document.getElementById('searchResultTitle');
+    let blurTimeout; // Variable to store the blur event timeout
+  
+    // Function to show search results
+    function showSearchResults() {
+      searchResults.style.display = 'block';
+      searchResultTitle.style.display = 'block';
+    }
+  
+    // Function to hide search results
+    function hideSearchResults() {
+      searchResults.style.display = 'none';
+      searchResultTitle.style.display = 'none';
+    }
+  
+    // Event listener for focus on search input
+    searchInput.addEventListener('focus', function () {
+      if (searchInput.value.trim() !== '') {
+        showSearchResults();
+      }
+    });
+  
+    // Event listener for input in search field
+    searchInput.addEventListener('input', function () {
+      if (searchInput.value.trim() !== '') {
+        showSearchResults();
+      } else {
+        hideSearchResults();
+      }
+    });
+  
+    // Event listener for blur (losing focus) on search input
+    searchInput.addEventListener('blur', function () {
+      // Delay hiding the search results to allow time to click on a link
+      blurTimeout = setTimeout(hideSearchResults, 500); // Adjust the delay time as needed
+    });
+  
+    // Event listener for mouseenter on search results
+    searchResults.addEventListener('mouseenter', function () {
+      // Clear the blur event timeout when mouse enters the search results
+      clearTimeout(blurTimeout);
+    });
+  
+    // Event listener for mouseleave on search results
+    searchResults.addEventListener('mouseleave', function () {
+      // Reset the blur event timeout when mouse leaves the search results
+      blurTimeout = setTimeout(hideSearchResults, 500); // Adjust the delay time as needed
+    });
+  });
+  
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('search-navbar');
+    const searchResults = document.getElementById('searchResults');
+
+    searchInput.addEventListener('input', function (event) {
+      const searchTerm = event.target.value.toLowerCase().trim();
+
+      // Make a GET request to the /search endpoint on your server with the search term
+      fetch(`/search?term=${searchTerm}`)
+        .then(response => response.json())
+        .then(data => {
+          // Handle received search results (update the UI, display search results, etc.)
+          console.log('Search results:', data);
+
+          // Check if searchResults is null or undefined before updating innerHTML
+          if (searchResults) {
+            // Clear previous search results
+            searchResults.innerHTML = '';
+
+            // Map data to HTML elements and append them to searchResults div
+            data.forEach((item, index) => {
+              const productElement = document.createElement('div');
+              productElement.classList.add('product'); // Add classes or styles as needed
+
+              const productName = document.createElement('a');
+              productName.setAttribute('id', `product-${index}`); // Set unique ID for each anchor tag
+
+              productName.textContent = item.title;
+              productElement.appendChild(productName);
+
+              productName.addEventListener('click', function (event) {
+                const clickedElement = event.target;
+                const searchTerm = clickedElement.textContent.trim(); // Extract the text content of the clicked anchor tag
+                console.log('Search Term:', searchTerm);
+
+                const anchorHref = `/search_product?search=${encodeURIComponent(searchTerm)}`;
+                console.log('Constructed Href:', anchorHref);
+
+                // You can use anchorHref for further operations or navigation
+                productName.setAttribute('href', anchorHref);
+              });
+
+              // Append the product element to searchResults
+              searchResults.appendChild(productElement);
+            });
+          } else {
+            console.error('SearchResults element not found');
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching search results:', error);
+        });
+    });
+  });
+
+</script>
+<script>
+
+
+
+  // Function to stop the video at a specific time
+  function stopVideoAtTime(videoId, timeInSeconds) {
+    const iframe = document.getElementById(videoId);
+    const urlParams = new URLSearchParams(iframe.src);
+
+    if (urlParams.has('autoplay') && urlParams.has('mute')) {
+      setTimeout(() => {
+        iframe.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
+      }, timeInSeconds * 1000); // Convert seconds to milliseconds for setTimeout
+    }
+  }
+
+  // Call the function to stop the video at 2 minutes (120 seconds)
+  stopVideoAtTime('videoFrame', 120); // 'videoFrame' is the ID of the iframe
+
+
+  function validateForm() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    const successMessage = document.getElementById('success_message');
+
+    // Check if any field is empty
+    if (name === '' || email === '' || message === '') {
+      alert('Please fill in all fields');
+      return false; // Prevent form submission
+    } else {
+      successMessage.style.display = 'block'; // Display the success message
+      return true; // Allow form submission
+    }
+  }
+
+  
+  // Text to be displayed with typewriter effect
+  const text = "Illuminate your space with the majestic presence of our Bald Eagle Wall Light. Crafted with attention to detail, this stunning wall-mounted light fixture not only provides ambient lighting but also serves as a captivating piece of decor.";
+
+  const speed = 70; // Speed of typing in milliseconds
+  let index = 0;
+
+  function typeWriter() {
+    if (index < text.length) {
+      document.getElementById("typewriter-text").innerHTML += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  // Start typing animation
+  typeWriter();
+  function sendMessage() {
+    const message = document.getElementById('userInput').value;
+    if (message.trim() !== '') {
+      const chatBox = document.getElementById('chatBox');
+      const newMessage = document.createElement('div');
+      newMessage.textContent = message;
+      chatBox.appendChild(newMessage);
+      document.getElementById('userInput').value = '';
+      chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
+    }
+  }
+
+
+  // Function to simulate typing effect
+  function chatWriter(text, index, conversation) {
+    if (index < text.length) {
+      conversation.textContent += text.charAt(index);
+      index++;
+      setTimeout(() => {
+        chatWriter(text, index, conversation);
+      }, 50); // Adjust typing speed here (milliseconds)
+    }
+  }
+
+
+
+</script>
