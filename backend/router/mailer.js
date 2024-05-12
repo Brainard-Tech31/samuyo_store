@@ -11,12 +11,14 @@ require('dotenv').config();
   const transporter = nodemailer.createTransport({
     service:'gmail',
     auth: {
-      user: 'Omoarebrainard31@gmail.com', 
+      user: process.env.APP_USER, 
       pass: process.env.APP_PSSWD, 
     
     },
+    secure: true, // use SSL
     tls: {
-      rejectUnauthorized: false // Allow self-signed certificates
+      // If you're using a self-signed certificate, you may need to set this to 'false'
+      rejectUnauthorized: true // Set to true to reject unauthorized connections
     }
   });
 
