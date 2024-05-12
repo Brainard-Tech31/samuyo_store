@@ -28,7 +28,7 @@ app.use(signupRouter)
 app.use(mailRouter)
 app.use(blog)
 
-// Serve sitemap file
+
 app.get('/sitemap.xml', (req, res) => {
     const sitemapPath = path.join(__dirname, 'sitemap1.xml');
     fs.readFile(sitemapPath, 'utf8', (err, data) => {
