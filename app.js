@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express()
 const port = 3000;
+const fs = require('fs')
 const bodyparser = require('body-parser');
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
@@ -27,6 +28,17 @@ app.use(signupRouter)
 app.use(mailRouter)
 app.use(blog)
 
-
+// Serve sitemap file
+app.get('/sitemap.xml', (req, res) => {
+    const sitemapPath = path.join(__dirname, 'sitemap1.xml');
+    fs.readFile(sitemapPath, 'utf8', (err, data) => {
+        if (err) {
+            res.status(500).send('Error reading sitemap file');
+            return;
+        }
+        res.header('Content-Type', 'application/xml');
+        res.send(data);
+    });
+});
 app.get('/', (req, res) => res.render('pages/home',{}))
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
