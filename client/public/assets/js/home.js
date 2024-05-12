@@ -3,22 +3,6 @@
   // message.text = "Welcome to Samuyo Store Illuminate your space with the majestic presence of our Bald Eagle Wall Light. Crafted with attention to detail, this stunning wall-mounted light fixture not only provides ambient lighting but also serves as a captivating piece of decor.";
   // speechSynthesis.speak(message);
 
-  // Function to stop the video at a specific time
-  function stopVideoAtTime(videoId, timeInSeconds) {
-    const iframe = document.getElementById(videoId);
-    const urlParams = new URLSearchParams(iframe.src);
-
-    if (urlParams.has('autoplay') && urlParams.has('mute')) {
-      setTimeout(() => {
-        iframe.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
-      }, timeInSeconds * 1000); // Convert seconds to milliseconds for setTimeout
-    }
-  }
-
-  // Call the function to stop the video at 2 minutes (120 seconds)
-  stopVideoAtTime('videoFrame', 120); // 'videoFrame' is the ID of the iframe
-
-
   function validateForm() {
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;

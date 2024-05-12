@@ -33,3 +33,15 @@
 
 
   </div>
+  <script >
+     // Get references to the button and chat box
+  const chatToggleBtn = document.getElementById('chatToggle');
+  const chatBox = document.getElementById('chatBox');
+
+  // Add click event listener to the button
+  chatToggleBtn.addEventListener('click', () => {
+    // Toggle the visibility of the chat box
+    chatBox.style.display = chatBox.style.display === 'none' ? 'block' : 'none';
+  });
+
+  </script>

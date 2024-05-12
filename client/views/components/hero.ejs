@@ -37,11 +37,11 @@
         >
           Distinctive Product Beyond Comparison.
         </h1>
-        <p
-          id="myTypewriterText"
-          class="mb-8 text-lg font-normal text-white"
-          style="user-select: none"
-        ></p>
+       
+      
+        <div id="myTypewriterText"
+        class="mb-8 text-lg font-norma text-white"></div>
+
 
         <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
           <a
@@ -68,26 +68,52 @@
         </div>
       </div>
       <div>
-        <video
-          class="mx-auto w-full lg:max-w-xl h-64 rounded-lg sm:h-96"
-          controls
-          autoplay
-          muted
-          loop
-          style="-radius: 10px; overflow: hidden"
-        >
-          <source
-            src="assets/video/3D print! Night Owl Light by Bambu.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-          <a
-            href="assets/video/3D print! Night Owl Light by Bambu.mp4"
-            download="ed_1024_512kb.mp4"
-          >
-            download the MP4
-          </a>
-        </video>
+        <% products.slice(0, 1).forEach(product=> { %> <% let Best_Selling_Product=product.product_option %>
+          <% if (Best_Selling_Product==='Best selling product' ) { %>
+            <div class="video-background" style="
+            background-color: transparent;
+            width: 100%;
+            height: 100 !important;
+            z-index: 2;
+            pointer-events: none;
+            position: relative;
+        ">
+            <iframe id="videoFrame"   class="mx-auto w-full lg:max-w-xl h-64 rounded-lg sm:h-96"
+            src="<%= product.video %>?autoplay=1&mute=1" title="<%=product.title%>"
+            frame="0"]
+            allow=" autoplay;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <script>
+          
+              document.addEventListener("DOMContentLoaded", function () {
+                var index = 9;
+                var shopping_store_description = '<%=product.description%>';
+                var typing_speed = 50;
+                var max_chars = 250; // Maximum number of characters to display
+                var textElement = document.getElementById("myTypewriterText");
+            
+                // Truncate the description if it exceeds the maximum character limit
+                if (shopping_store_description.length > max_chars) {
+                    shopping_store_description = shopping_store_description.slice(0, max_chars) + "...";
+                }
+            
+                function typewriterEffect() {
+                    if (index < shopping_store_description.length) {
+                        textElement.textContent += shopping_store_description.charAt(index);
+                        index++;
+                        setTimeout(typewriterEffect, typing_speed);
+                    }
+                }
+            
+                typewriterEffect();
+            });
+            
+                    </script>
+        
+        <%}%>
+        <%})%>
+        
       </div>
     </div>
   </section>
